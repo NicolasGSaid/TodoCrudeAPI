@@ -9,7 +9,7 @@ class Tarefas(models.Model):
     
 class Usuarios(models.Model):
     UsuarioId = models.AutoField(primary_key=True)
-    UsuarioNomme = models.CharField(max_length=100)
+    UsuarioNome = models.CharField(max_length=100)
     Departamento = models.CharField(max_length=100)
     DataDeIngresso = models.DateField()
     ArquivoDeFoto = models.CharField(max_length=100)

@@ -12,5 +12,4 @@ from UsuarioApp.models import Tarefas
 class TarefaSerializer(serializers.ModelSerializer): #Define a classe TarefaSerializer, que herda de serializers.ModelSerializer
     class Meta:
         model = Tarefas # informa que esse serializer é baseado no model tarefas
-        fields = '__all__' # informa que todos os campos do modelo devem ser serializados
-        
+        fields = ('TarefaId', 'TarefaNome', 'TarefaDescricao', 'TarefaConcluida')        

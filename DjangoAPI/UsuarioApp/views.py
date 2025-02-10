@@ -27,7 +27,13 @@ def tarefaApi(request, id=0): #request representa a requisição HTTP feita pelo
         
     elif request.method=="PUT":   #requisição de atualização
         tarefa_data = JSONParser().parse(request) # Converte os dados json para um formato python, contendo as novas infos da tarefa
-        tarefa = Tarefas.objects.get(TarefaId=tarefa_data['TarefaId']) # Busca a tarefa no banco de dados pelo id 
+        try:
+            tarefa = Tarefas.objects.get(TarefaId=tarefa_data['TarefaId']) # Busca a tarefa no banco de dados pelo id 
+        except KeyError:
+            return JsonResponse("ID da tarefa não fornecido", safe=False)
+        except Tarefas.DoesNotExist:
+            return JsonResponse("Tarefa não encontrada", safe=False)
+        
         tarefa_serializer = TarefaSerializer(tarefa, data=tarefa_data) # cria uma instancia serializer passando dos dados para validação
         
         if tarefa_serializer.is_valid(): #verifica se os dados sao validos
@@ -36,7 +42,10 @@ def tarefaApi(request, id=0): #request representa a requisição HTTP feita pelo
         return JsonResponse("Falha ao atualizar", safe=False) #retorna uma mensagem de falha
     
     elif request.method=="DELETE": # requisição de deleção
-        tarefa = Tarefas.objects.get(TarefaId=id) # Busca a tarefa no banco de dados pelo id
+        try:
+            tarefa = Tarefas.objects.get(TarefaId=id) # Busca a tarefa no banco de dados pelo id
+        except Tarefas.DoesNotExist:
+            return JsonResponse("Tarefa não encontrada", safe=False)
+        
         tarefa.delete() # deleta a tarefa encontrada no banco 
-        return JsonResponse("Deletado com sucesso", safe=False) # retorna uma mensagem de sucesso na deleção 
-    
+        return JsonResponse("Deletado com sucesso", safe=False) # retorna uma mensagem de sucesso na deleção

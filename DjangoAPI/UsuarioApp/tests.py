@@ -1,3 +1,4 @@
-from django.test import TestCase
+# Importa a classe tewstCase para criar metodos de testar as views e os models, serializers entre outros 
 
-# Create your tests here.
+from django.test import TestCase 
+

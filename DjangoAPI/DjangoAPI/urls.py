@@ -1,24 +1,10 @@
-"""DjangoAPI URL Configuration
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
-from django.urls import path
+from django.contrib import admin #Painel de admministração do django 
+from django.urls import path #Função para criar rotas
 
-from django.conf.urls import url,include
+from django.conf.urls import url,include #Permite usar regex e include para incluir arquivos de rotas de outras aplicações
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    url(r'^',include('UsuarioApp.urls'))
+    path('admin/', admin.site.urls), #Rota para o painel de administração
+    url(r'^',include('UsuarioApp.urls')) #Rota para a aplicação personalizada, r'^'qualquer requisição será direcionada para esse arquivo de URLs.
 ]

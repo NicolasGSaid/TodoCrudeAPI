@@ -1,16 +1,22 @@
-"""
-ASGI config for DjangoAPI project.
+#Módulo nativo do python usado para manipular as variavéis de ambiente
 
-It exposes the ASGI callable as a module-level variable named ``application``.
+import os 
 
-For more information on this file, see
-https://docs.djangoproject.com/en/3.1/howto/deployment/asgi/
-"""
+#Módulo nativo do python usado para manipular as variavéis de ambiente
 
-import os
+from django.core.asgi import get_asgi_application 
 
-from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DjangoAPI.settings')
+#Define a variável de ambiente DJANGO_SETTINGS_MODULE apontando para o settings.py do projeto.
+#O django usa essa variavel para saber onde buscar as configurações do projeto
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DjangoAPI.settings') 
+
+
+                                                                       
+#Cria uma instancia da aplicação ASGI
+#Essa variavel sera usada pelo servidor ASGI para rodar o servidor de forma assincrona
+#O servidor ASGI é responsavel por gerenciar as conexões com o servidor e as requisições HTTP
 
 application = get_asgi_application()
+

@@ -1,16 +1,12 @@
-"""
-WSGI config for DjangoAPI project.
+#Módulo nativo do python usado para manipular as variavéis de ambiente
+import os 
 
-It exposes the WSGI callable as a module-level variable named ``application``.
+# Importa a função que cria a aplicação WSGI do Django
+from django.core.wsgi import get_wsgi_application 
 
-For more information on this file, see
-https://docs.djangoproject.com/en/3.1/howto/deployment/wsgi/
-"""
-
-import os
-
-from django.core.wsgi import get_wsgi_application
+#Define a variável de ambiente DJANGO_SETTINGS_MODULE apontando para o settings.py do projeto.
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DjangoAPI.settings')
 
+#Cria uma instancia da aplicação WSGI
 application = get_wsgi_application()

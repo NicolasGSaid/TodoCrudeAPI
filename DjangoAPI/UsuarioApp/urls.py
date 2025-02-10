@@ -1,16 +1,12 @@
-from django.conf.urls import url 
-from UsuarioApp import views
+from django.conf.urls import url #funçao para definir view associada a uma url
+from UsuarioApp import views #importa as views do app UsuarioApp
 
-from django.conf.urls.static import static
-from django.conf import settings
+from django.conf.urls.static import static #importa a função static para servir arquivos de mídia
+from django.conf import settings #importa as configurações do projeto
 
 urlpatterns = [
+
     url(r'^tarefa/$',views.tarefaApi),
     url(r'^tarefa/([0-9]+)$',views.tarefaApi),
-    
-    url(r'^usuario/$',views.usuarioApi),
-    url(r'^usuario/([0-9]+)$',views.usuarioApi),
-    
-    url(r'^SaveFile$', views.SaveFile),
-    
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+       
+] 

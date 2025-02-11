@@ -33,5 +33,5 @@ Siga os passos abaixo para configurar e executar a API localmente na sua máquin
 4. Inicie o servidor 
 
   bash:
-  ng serve
+  python manage.py runserver
   

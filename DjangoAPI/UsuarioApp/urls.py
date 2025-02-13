@@ -9,4 +9,4 @@ urlpatterns = [
     path('tarefa/', views.tarefaApi),
     path('tarefa/<int:id>', views.tarefaApi),
 ]
-       
+            

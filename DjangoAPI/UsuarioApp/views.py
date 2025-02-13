@@ -8,6 +8,9 @@ from UsuarioApp.serializers import TarefaSerializer
 
 from django.core.files.storage import default_storage
 
+def home(request):
+    return render(request, 'home.html')
+
 @csrf_exempt
 def tarefaApi(request, id=0): #request representa a requisição HTTP feita pelo front, id é usado para identificar a tarefa
     

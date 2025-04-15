@@ -52,3 +52,5 @@ def tarefaApi(request, id=0): #request representa a requisição HTTP feita pelo
         
         tarefa.delete() # deleta a tarefa encontrada no banco 
         return JsonResponse("Deletado com sucesso", safe=False) # retorna uma mensagem de sucesso na deleção
+    
+    #EU NAO FIZ A LÓGICA DO MARCADOR DE CONCLUSÃO BURRO BURRO BURRO BURRO
